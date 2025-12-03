@@ -5,124 +5,281 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Soheil Sheikh Ahmadi - Personal Website</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; background: #f9f9f9; color: #333; }
-    header { background: #1e3d59; color: white; padding: 20px; text-align: center; }
-    section { padding: 40px; max-width: 900px; margin: auto; }
-    h1, h2 { color: #1e3d59; }
-    ul { margin-left: 20px; }
-    .card { background: white; padding: 20px; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background: #f5f7fb;
+      color: #333;
+    }
+    header {
+      background: #1e3d59;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 { margin-bottom: 5px; }
+    header p { margin-top: 0; }
+
+    nav {
+      background: #163045;
+      color: #fff;
+      padding: 8px 0;
+      text-align: center;
+      font-size: 0.95rem;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    section {
+      padding: 35px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 { color: #1e3d59; margin-top: 0; }
+    ul, ol { margin-left: 20px; }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    }
     a { color: #0066cc; text-decoration: none; }
     a:hover { text-decoration: underline; }
-    footer { text-align: center; padding: 20px; background: #1e3d59; color: white; margin-top: 40px; }
-    img.profile { width: 150px; border-radius: 8px; }
-    .about-container { display: flex; align-items: flex-start; gap: 20px; }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1e3d59;
+      color: white;
+      margin-top: 40px;
+      font-size: 0.9rem;
+    }
+    img.profile {
+      width: 150px;
+      border-radius: 8px;
+    }
+    .about-container {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 600px) {
+      .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: justify;
+      }
+      img.profile {
+        width: 130px;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Soheil Sheikh Ahmadi</h1>
-    <p>Ph.D. in Electrical Engineering – Control | Researcher in Advanced Control, Machine Learning & Robotics</p>
+    <p>Ph.D. in Electrical Engineering – Control | Advanced Control, Machine Learning & Robotics</p>
   </header>
 
-  <section>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#research">Research</a>
+    <a href="#projects">Projects</a>
+    <a href="#publications">Publications</a>
+    <a href="#patent">Patent</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
     <h2>About Me</h2>
     <div class="card about-container">
       <img src="profile.jpg" alt="Soheil Sheikh Ahmadi" class="profile">
       <div>
         <p>
-          I am Soheil Sheikh Ahmadi, holding a B.Sc. in Electrical Engineering, an M.Sc. in Mechatronics Engineering, and a Ph.D. in Electrical Engineering–Control from the University of Tabriz. I am also the CEO of Vira Fanavar Toural Company, where I lead research and development in smart energy control systems and educational robotics.
+          I am Soheil Sheikh Ahmadi, holding a B.Sc. in Electrical Engineering, an M.Sc. in Mechatronics Engineering,
+          and a Ph.D. in Electrical Engineering–Control from the University of Tabriz. I am also the CEO of Vira
+          Fanavar Toural Company, where I lead research and development in smart energy control systems
+          and educational robotics.
         </p>
         <p>
-          My research and professional interests lie in the areas of advanced control systems including switching control, model predictive control, and robust control alongside machine learning, reinforcement learning, and robotics. Over the years, I have been engaged in projects that bridge theory and practice, from intelligent control of robotic platforms to applying optimization and AI-driven methods in real-world engineering problems.
+          My research interests lie in advanced control systems, including switching control, model predictive control,
+          and robust control, alongside machine learning, reinforcement learning, and robotics. I work on projects that
+          bridge theory and practice, from intelligent control of robotic platforms to applying optimization and
+          AI-driven methods in real-world engineering problems.
         </p>
         <p>
-          I am passionate about developing intelligent, adaptive, and resilient systems that can learn, interact, and perform effectively in uncertain and dynamic environments. My vision is to contribute to innovative solutions that not only advance scientific knowledge but also create meaningful impacts in robotics, healthcare, energy systems, and beyond.
+          I am passionate about developing intelligent, adaptive, and resilient systems that can learn, interact,
+          and perform effectively in uncertain and dynamic environments, with applications in robotics, healthcare,
+          and energy systems.
         </p>
       </div>
     </div>
   </section>
 
-  <section>
+  <section id="research">
     <h2>Research & Interests</h2>
     <div class="card">
       <ul>
         <li>Switching, robust, and model predictive control methods for complex dynamical systems.</li>
-        <li>Machine learning and reinforcement learning algorithms, with applications in robotics and intelligent decision-making.</li>
+        <li>Machine learning and reinforcement learning with applications in robotics and intelligent decision-making.</li>
         <li>Robotics and mechatronics, including parallel robot control, mobile robots, and autonomous systems.</li>
-        <li>Optimization techniques for improving efficiency and resilience in energy systems and intelligent engineering applications.</li>
+        <li>Optimization and AI techniques for efficiency and resilience in energy systems and engineering applications.</li>
       </ul>
     </div>
   </section>
 
-  <section>
+  <section id="projects">
     <h2>Projects</h2>
     <div class="card">
       <ol>
-        <li><strong>Design and Development of an Energy Control System</strong> – Vira Fanavar Toural<br/>Led the design and implementation of a smart energy control system aimed at improving efficiency and sustainability.</li>
-        <li><strong>Research on Impulsive Switching Systems</strong><br/>Conducted advanced research on impulsive switching control systems, focusing on stability analysis, observer design, and robust control methods.</li>
-        <li><strong>Student Robotic Soccer Team – IranOpen</strong><br/>Designed and developed autonomous soccer-playing robots for high school students, successfully preparing them for competitions.</li>
-        <li><strong>Supervisor – Autonomous Mobile Robot</strong><br/>Supervised student team in the design and implementation of an intelligent wheeled mobile robot for IranOpen competitions.</li>
+        <li>
+          <strong>Design and Development of an Energy Control System</strong> – Vira Fanavar Toural<br/>
+          Led the design and implementation of a smart energy control system aimed at improving efficiency and sustainability.
+        </li>
+        <li>
+          <strong>Research on Impulsive Switching Systems</strong><br/>
+          Advanced research on impulsive switching control systems, focusing on stability analysis, observer design,
+          and robust control methods.
+        </li>
+        <li>
+          <strong>Student Robotic Soccer Team – IranOpen</strong><br/>
+          Designed and developed autonomous soccer-playing robots for high school students, preparing them for competitions.
+        </li>
+        <li>
+          <strong>Supervisor – Autonomous Mobile Robot</strong><br/>
+          Supervised a student team in the design and implementation of an intelligent wheeled mobile robot for IranOpen competitions.
+        </li>
       </ol>
     </div>
   </section>
 
-  <section>
+  <section id="publications">
     <h2>Publications</h2>
     <div class="card">
       <ol>
-        <li>Sheikh Ahmadi, S., Rahmani, A. (2025). <em>Solving Inverse Kinematics for a 6-DOF Stewart Platform Using the DDPG Algorithm</em>. International Journal of Dynamics and Control (Accepted).</li>
-        <li>Sheikh Ahmadi, S., Hashemzadeh, F., Badamchizadeh, M. A. (2024). <em>Reduced order state estimation…</em>. ISA Transactions, 155, pp.171–183.</li>
-        <li>Samaei, M. H., Sheikh Ahmadi, S., et al. (2022). <em>Comment on… lower-limb exoskeleton</em>. Asian Journal of Control.</li>
-        <li>Sheikh Ahmadi, S., Rahmani, A. (2020). <em>Nonlinear model predictive control of a Stewart platform…</em>. IJ Theoretical and Applied Mechanics.</li>
-        <li>Sheikh Ahmadi, S., Rahmani, A. (2020). <em>Position Control of Stewart Platform using Dynamic Matrix Control</em>. Majlesi Journal of Mechatronic Systems.</li>
-        <li>Sheikh Ahmadi, S. (2019). <em>Boundary condition effect on micro-beams using Newton Raphson</em>. JMEST, 6(6).</li>
-        <li><em>Data-Driven Energy Consumption Prediction</em>, ICTEM, IEEE, 2025.</li>
-        <li><em>Observer-Based Controller for Impulsive Switched Systems</em>, ICEE, IEEE, 2025.</li>
-        <li><em>Deep Learning Framework for Brain Tumor Detection</em>, IPRIA, IEEE, 2025.</li>
-        <li><em>Adaptive Fuzzy Sliding-Mode Control</em>, NEC2019.</li>
-        <li><em>Position Control of Six-DOF Stewart Mechanism Using SMC</em>, 2nd Int. Conf. on EE, 2017.</li>
-        <li><em>PID Controller for Stewart Mechanism</em>, 1st Int. Conf. on E&CE, 2016.</li>
+        <li>
+          Sheikh Ahmadi, S., Rahmani, A. (2025).
+          <em>Solving Inverse Kinematics for a 6-DOF Stewart Platform Using the DDPG Algorithm.</em>
+          <strong>International Journal of Dynamics and Control</strong> (Accepted).
+        </li>
+        <li>
+          Sheikh Ahmadi, S., Hashemzadeh, F., Badamchizadeh, M. A. (2024).
+          <em>Reduced order state estimation …</em>
+          <strong>ISA Transactions</strong>, 155, pp.171–183.
+        </li>
+        <li>
+          Samaei, M. H., Sheikh Ahmadi, S., et al. (2022).
+          <em>Comment on … lower-limb exoskeleton.</em>
+          <strong>Asian Journal of Control.</strong>
+        </li>
+        <li>
+          Sheikh Ahmadi, S., Rahmani, A. (2020).
+          <em>Nonlinear model predictive control of a Stewart platform …</em>
+          <strong>International Journal of Theoretical and Applied Mechanics.</strong>
+        </li>
+        <li>
+          Sheikh Ahmadi, S., Rahmani, A. (2020).
+          <em>Position Control of Stewart Platform using Dynamic Matrix Control.</em>
+          <strong>Majlesi Journal of Mechatronic Systems.</strong>
+        </li>
+        <li>
+          Sheikh Ahmadi, S. (2019).
+          <em>Boundary condition effect on micro-beams using Newton Raphson.</em>
+          <strong>JMEST</strong>, 6(6).
+        </li>
+
+        <!-- IEEE conference papers -->
+        <li>
+          Sheikh Ahmadi, S., et al. (2025).
+          <em>Data-Driven Energy Consumption Prediction.</em>
+          In <strong>ICTEM 2025</strong>, IEEE.
+          <a href="https://ieeexplore.ieee.org/document/11263754" target="_blank">[IEEE Xplore]</a>
+        </li>
+        <li>
+          Sheikh Ahmadi, S., et al. (2025).
+          <em>Observer-Based Controller for Impulsive Switched Systems.</em>
+          In <strong>ICEE 2025</strong>, IEEE.
+          <a href="https://ieeexplore.ieee.org/document/11213797" target="_blank">[IEEE Xplore]</a>
+        </li>
+        <li>
+          Sheikh Ahmadi, S., et al. (2025).
+          <em>Deep Learning Framework for Brain Tumor Detection.</em>
+          In <strong>IPRIA 2025</strong>, IEEE.
+        </li>
+        <li>
+          <em>Adaptive Fuzzy Sliding-Mode Control.</em> NEC 2019.
+        </li>
+        <li>
+          <em>Position Control of Six-DOF Stewart Mechanism Using SMC.</em>
+          2nd Int. Conf. on EE, 2017.
+        </li>
+        <li>
+          <em>PID Controller for Stewart Mechanism.</em>
+          1st Int. Conf. on E&CE, 2016.
+        </li>
       </ol>
     </div>
   </section>
 
-  <section>
+  <section id="patent">
     <h2>Patent</h2>
     <div class="card">
-      <p><strong>UV-Based Air Disinfection Lamp</strong><br/>Patent Holder: Soheil Sheikh Ahmadi<br/>An ultraviolet-based system for virus inactivation and air disinfection during the COVID-19 pandemic.<br/>Year: 2021 | Registered at: Iranian Patent Office</p>
+      <p>
+        <strong>UV-Based Air Disinfection Lamp</strong><br/>
+        Patent Holder: Soheil Sheikh Ahmadi<br/>
+        An ultraviolet-based system for virus inactivation and air disinfection during the COVID-19 pandemic.<br/>
+        Year: 2021 &nbsp;|&nbsp; Registered at: Iranian Patent Office
+      </p>
     </div>
   </section>
 
-  <section>
+  <section id="experience">
     <h2>Work Experience</h2>
     <div class="card">
       <ul>
-        <li>CEO & Board Member – Vira Fanavar Toural Co.</li>
-        <li>Adjunct Lecturer – University of Tabriz & Urmia University of Technology</li>
-        <li>Instructor – Robotics & Artificial Intelligence Courses</li>
+        <li>CEO &amp; Board Member – Vira Fanavar Toural Co.</li>
+        <li>Adjunct Lecturer – University of Tabriz &amp; Urmia University of Technology</li>
+        <li>Instructor – Robotics &amp; Artificial Intelligence Courses</li>
         <li>Physics Teacher – SAMPAD Schools, Tabriz</li>
       </ul>
     </div>
   </section>
 
-  <section>
+  <section id="skills">
     <h2>Skills</h2>
     <div class="card">
       <ul>
-        <li><strong>Programming & Tools:</strong> MATLAB, Python, C/C++, TensorFlow, ROS, Simulink</li>
-        <li><strong>Control & Automation:</strong> MPC, Fuzzy Control, Observer Design, PLC (Siemens)</li>
-        <li><strong>Robotics:</strong> Real-Time Control, ROS, Sensor Integration, OpenCV</li>
+        <li><strong>Programming &amp; Tools:</strong> MATLAB, Python, C/C++, TensorFlow, Keras, scikit-learn, ROS, Simulink</li>
+        <li><strong>Control &amp; Automation:</strong> MPC, Fuzzy Control, Sliding-Mode Control, Observer Design, PLC (Siemens)</li>
+        <li><strong>Robotics:</strong> Real-Time Control, ROS, Sensor Integration, Computer Vision (OpenCV)</li>
         <li><strong>Embedded Systems:</strong> Arduino, Raspberry Pi, STM32</li>
-        <li><strong>Other:</strong> LaTeX, Linux, PCB Design (Altium, Proteus)</li>
+        <li><strong>Other:</strong> LaTeX, Linux, PCB Design (Altium, Proteus, Multisim)</li>
       </ul>
     </div>
   </section>
 
-  <section>
+  <section id="contact">
     <h2>Contact</h2>
     <div class="card">
-      <p><strong>Email:</strong> <a href="mailto:Soheil.sheikhahmadi@tabrizu.ac.ir">Soheil.sheikhahmadi@tabrizu.ac.ir</a><br/>
-      <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/soheil-sheikh-ahmadi-777b8b2a1/" target="_blank">LinkedIn Profile</a></p>
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:Soheil.sheikhahmadi@tabrizu.ac.ir">Soheil.sheikhahmadi@tabrizu.ac.ir</a><br/>
+        <strong>LinkedIn:</strong>
+        <a href="https://www.linkedin.com/in/soheil-sheikh-ahmadi-777b8b2a1/" target="_blank">LinkedIn Profile</a><br/>
+        <strong>Google Scholar:</strong>
+        <!-- لینک پروفایل خودت را اینجا بگذار -->
+        <a href="#" target="_blank">Google Scholar Profile</a>
+      </p>
     </div>
   </section>
 
