@@ -3,288 +3,750 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Soheil Sheikh Ahmadi - Personal Website</title>
+  <title>Soheil Sheikh Ahmadi - Control Systems & AI</title>
+
+  <!-- Basic styling -->
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.15);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --card: #111827;
+      --border: #1f2937;
+      --radius-lg: 18px;
+      --radius-md: 12px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.55);
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      line-height: 1.6;
-      background: #f5f7fb;
-      color: #333;
     }
-    header {
-      background: #1e3d59;
-      color: white;
-      padding: 20px;
-      text-align: center;
-    }
-    header h1 { margin-bottom: 5px; }
-    header p { margin-top: 0; }
 
-    nav {
-      background: #163045;
-      color: #fff;
-      padding: 8px 0;
-      text-align: center;
-      font-size: 0.95rem;
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 55%, #020617 100%);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
-    nav a {
-      color: #fff;
-      margin: 0 10px;
+
+    a {
+      color: var(--accent);
       text-decoration: none;
     }
-    nav a:hover { text-decoration: underline; }
-
-    section {
-      padding: 35px 20px;
-      max-width: 900px;
-      margin: auto;
+    a:hover {
+      text-decoration: underline;
     }
-    h2 { color: #1e3d59; margin-top: 0; }
-    ul, ol { margin-left: 20px; }
 
-    .card {
-      background: white;
-      padding: 20px;
-      margin: 20px 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    header {
+      position: relative;
+      overflow: hidden;
+      padding: 32px 20px 56px;
     }
-    a { color: #0066cc; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #1e3d59;
+
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 4vw, 2.9rem);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin-bottom: 10px;
+    }
+
+    .hero-title span {
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 34rem;
+      margin-bottom: 18px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .tag-chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.8);
+      border: 1px solid rgba(75, 85, 99, 0.9);
+      font-size: 11px;
+      color: #e5e7eb;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease, border-color 0.12s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4f46e5, #06b6d4);
       color: white;
-      margin-top: 40px;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.9);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 1);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.7);
+      border-color: rgba(148, 163, 184, 0.4);
+      color: var(--text);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .hero-avatar-wrapper {
+      justify-self: center;
+    }
+
+    .hero-avatar {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      border: 3px solid rgba(148, 163, 184, 0.7);
+      padding: 6px;
+      background: radial-gradient(circle, #0f172a, #020617);
+      box-shadow: var(--shadow-soft);
+      object-fit: cover;
+    }
+
+    nav.main-nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(15, 23, 42, 0.97);
+      border-top: 1px solid #111827;
+      border-bottom: 1px solid #111827;
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px;
       font-size: 0.9rem;
     }
-    img.profile {
-      width: 150px;
-      border-radius: 8px;
-    }
-    .about-container {
+
+    .nav-links {
       display: flex;
-      align-items: flex-start;
-      gap: 20px;
       flex-wrap: wrap;
+      gap: 14px;
     }
-    @media (max-width: 600px) {
-      .about-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: justify;
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: #e5e7eb;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+
+    section {
+      margin-bottom: 32px;
+    }
+
+    section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #e5e7eb;
+    }
+
+    section h2 span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 400;
+      margin-left: 6px;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.3fr);
+      gap: 18px;
+    }
+    @media (max-width: 900px) {
+      .section-grid {
+        grid-template-columns: 1fr;
       }
-      img.profile {
-        width: 130px;
-      }
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border);
+    }
+
+    .card + .card {
+      margin-top: 12px;
+    }
+
+    .card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .pill-small {
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(17, 24, 39, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .pub-list {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .pub-item {
+      padding: 10px 12px;
+      border-radius: var(--radius-md);
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(55, 65, 81, 0.75);
+    }
+
+    .pub-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .pub-links {
+      font-size: 0.8rem;
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      font-size: 0.72rem;
+      color: #c7d2fe;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-right: 6px;
+    }
+
+    .timeline {
+      list-style: none;
+      border-left: 1px solid rgba(55, 65, 81, 0.9);
+      margin-left: 8px;
+      padding-left: 14px;
+      font-size: 0.9rem;
+    }
+
+    .timeline li {
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .timeline li::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      position: absolute;
+      left: -4.5px;
+      top: 4px;
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.25);
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 16px;
+    }
+    @media (max-width: 900px) {
+      .two-col { grid-template-columns: 1fr; }
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      border-top: 1px solid #111827;
+      padding: 14px 16px 22px;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      background: #020617;
     }
   </style>
 </head>
 <body>
+
+  <!-- HERO -->
   <header>
-    <h1>Soheil Sheikh Ahmadi</h1>
-    <p>Ph.D. in Electrical Engineering – Control | Advanced Control, Machine Learning & Robotics</p>
-  </header>
-
-  <nav>
-    <a href="#about">About</a>
-    <a href="#research">Research</a>
-    <a href="#projects">Projects</a>
-    <a href="#publications">Publications</a>
-    <a href="#patent">Patent</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="card about-container">
-      <img src="profile.jpg" alt="Soheil Sheikh Ahmadi" class="profile">
+    <div class="hero">
       <div>
-        <p>
-          I am Soheil Sheikh Ahmadi, holding a B.Sc. in Electrical Engineering, an M.Sc. in Mechatronics Engineering,
-          and a Ph.D. in Electrical Engineering–Control from the University of Tabriz. I am also the CEO of Vira
-          Fanavar Toural Company, where I lead research and development in smart energy control systems
-          and educational robotics.
+        <div class="pill">
+          <span class="pill-dot"></span> Control Systems • AI • Robotics
+        </div>
+        <h1 class="hero-title">
+          Dr. <span>Soheil Sheikh Ahmadi</span>
+        </h1>
+        <p class="hero-subtitle">
+          Control systems researcher specializing in impulsive switched systems, observer design, and intelligent control,
+          integrating machine learning and deep reinforcement learning for robotics, energy, and autonomous systems.
         </p>
-        <p>
-          My research interests lie in advanced control systems, including switching control, model predictive control,
-          and robust control, alongside machine learning, reinforcement learning, and robotics. I work on projects that
-          bridge theory and practice, from intelligent control of robotic platforms to applying optimization and
-          AI-driven methods in real-world engineering problems.
-        </p>
-        <p>
-          I am passionate about developing intelligent, adaptive, and resilient systems that can learn, interact,
-          and perform effectively in uncertain and dynamic environments, with applications in robotics, healthcare,
-          and energy systems.
-        </p>
+
+        <div class="hero-tags">
+          <span class="tag-chip">Impulsive / Switched Systems</span>
+          <span class="tag-chip">Observers &amp; State Estimation</span>
+          <span class="tag-chip">Model Predictive &amp; Robust Control</span>
+          <span class="tag-chip">Reinforcement Learning</span>
+          <span class="tag-chip">Robotics &amp; Mechatronics</span>
+          <span class="tag-chip">Smart Energy Systems</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="Soheil-Sheikh-Ahmadi.pdf" target="_blank">
+            View CV (PDF)
+          </a>
+          <a class="btn btn-ghost" href="https://scholar.google.com/citations?hl=en&user=v_0zkdcAAAAJ" target="_blank">
+            Google Scholar
+          </a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/soheil-sheikh-ahmadi-777b8b2a1/" target="_blank">
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div class="hero-avatar-wrapper">
+        <img src="profile.jpg" alt="Soheil Sheikh Ahmadi" class="hero-avatar">
       </div>
     </div>
-  </section>
+  </header>
 
-  <section id="research">
-    <h2>Research & Interests</h2>
-    <div class="card">
-      <ul>
-        <li>Switching, robust, and model predictive control methods for complex dynamical systems.</li>
-        <li>Machine learning and reinforcement learning with applications in robotics and intelligent decision-making.</li>
-        <li>Robotics and mechatronics, including parallel robot control, mobile robots, and autonomous systems.</li>
-        <li>Optimization and AI techniques for efficiency and resilience in energy systems and engineering applications.</li>
-      </ul>
+  <!-- STICKY NAV -->
+  <nav class="main-nav">
+    <div class="nav-inner">
+      <div style="font-size:0.85rem;color:#9ca3af;">soheilsheikhahmadi.github.io</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#awards">Awards</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
-  </section>
+  </nav>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="card">
-      <ol>
-        <li>
-          <strong>Design and Development of an Energy Control System</strong> – Vira Fanavar Toural<br/>
-          Led the design and implementation of a smart energy control system aimed at improving efficiency and sustainability.
-        </li>
-        <li>
-          <strong>Research on Impulsive Switching Systems</strong><br/>
-          Advanced research on impulsive switching control systems, focusing on stability analysis, observer design,
-          and robust control methods.
-        </li>
-        <li>
-          <strong>Student Robotic Soccer Team – IranOpen</strong><br/>
-          Designed and developed autonomous soccer-playing robots for high school students, preparing them for competitions.
-        </li>
-        <li>
-          <strong>Supervisor – Autonomous Mobile Robot</strong><br/>
-          Supervised a student team in the design and implementation of an intelligent wheeled mobile robot for IranOpen competitions.
-        </li>
-      </ol>
-    </div>
-  </section>
+  <!-- MAIN CONTENT -->
+  <main>
 
-  <section id="publications">
-    <h2>Publications</h2>
-    <div class="card">
-      <ol>
-        <li>
-          Sheikh Ahmadi, S., Rahmani, A. (2025).
-          <em>Solving Inverse Kinematics for a 6-DOF Stewart Platform Using the DDPG Algorithm.</em>
-          <strong>International Journal of Dynamics and Control</strong> (Accepted).
-        </li>
-        <li>
-          Sheikh Ahmadi, S., Hashemzadeh, F., Badamchizadeh, M. A. (2024).
-          <em>Reduced order state estimation …</em>
-          <strong>ISA Transactions</strong>, 155, pp.171–183.
-        </li>
-        <li>
-          Samaei, M. H., Sheikh Ahmadi, S., et al. (2022).
-          <em>Comment on … lower-limb exoskeleton.</em>
-          <strong>Asian Journal of Control.</strong>
-        </li>
-        <li>
-          Sheikh Ahmadi, S., Rahmani, A. (2020).
-          <em>Nonlinear model predictive control of a Stewart platform …</em>
-          <strong>International Journal of Theoretical and Applied Mechanics.</strong>
-        </li>
-        <li>
-          Sheikh Ahmadi, S., Rahmani, A. (2020).
-          <em>Position Control of Stewart Platform using Dynamic Matrix Control.</em>
-          <strong>Majlesi Journal of Mechatronic Systems.</strong>
-        </li>
-        <li>
-          Sheikh Ahmadi, S. (2019).
-          <em>Boundary condition effect on micro-beams using Newton Raphson.</em>
-          <strong>JMEST</strong>, 6(6).
-        </li>
+    <!-- About + Research -->
+    <section id="about">
+      <div class="section-grid">
+        <div>
+          <h2>About <span>/ background</span></h2>
+          <div class="card">
+            <p class="muted">
+              I received my Ph.D. in Electrical Engineering – Control Systems (2024) from the University of Tabriz,
+              following an M.Sc. in Mechatronics Engineering (2017) and a B.Sc. in Electrical Engineering – Electronics.
+              I currently serve as CEO of Vira Fanavar Tural Company, where I lead R&amp;D on smart energy systems,
+              autonomous robotics, and industrial control solutions.
+            </p>
+            <p class="muted" style="margin-top:8px;">
+              My research focuses on observer and controller design for nonlinear impulsive switched systems under
+              uncertainties and unknown inputs, as well as intelligent and learning-based control approaches
+              for robotic and energy systems.
+            </p>
+          </div>
+        </div>
 
-        <!-- IEEE conference papers -->
-        <li>
-          Sheikh Ahmadi, S., et al. (2025).
-          <em>Data-Driven Energy Consumption Prediction.</em>
-          In <strong>ICTEM 2025</strong>, IEEE.
-          <a href="https://ieeexplore.ieee.org/document/11263754" target="_blank">[IEEE Xplore]</a>
-        </li>
-        <li>
-          Sheikh Ahmadi, S., et al. (2025).
-          <em>Observer-Based Controller for Impulsive Switched Systems.</em>
-          In <strong>ICEE 2025</strong>, IEEE.
-          <a href="https://ieeexplore.ieee.org/document/11213797" target="_blank">[IEEE Xplore]</a>
-        </li>
-        <li>
-          Sheikh Ahmadi, S., et al. (2025).
-          <em>Deep Learning Framework for Brain Tumor Detection.</em>
-          In <strong>IPRIA 2025</strong>, IEEE.
-        </li>
-        <li>
-          <em>Adaptive Fuzzy Sliding-Mode Control.</em> NEC 2019.
-        </li>
-        <li>
-          <em>Position Control of Six-DOF Stewart Mechanism Using SMC.</em>
-          2nd Int. Conf. on EE, 2017.
-        </li>
-        <li>
-          <em>PID Controller for Stewart Mechanism.</em>
-          1st Int. Conf. on E&CE, 2016.
-        </li>
-      </ol>
-    </div>
-  </section>
+        <div id="research">
+          <h2>Research Interests <span>/ focus areas</span></h2>
+          <div class="card">
+            <ul class="muted" style="list-style:disc;margin-left:18px;">
+              <li>Observer design and state estimation for nonlinear and impulsive switched systems.</li>
+              <li>Robust, model predictive, and sliding-mode control for complex dynamical systems.</li>
+              <li>Deep reinforcement learning and optimization for robotic manipulators and Stewart platforms.</li>
+              <li>Intelligent energy management, data-driven control, and smart grid applications.</li>
+              <li>Deep learning and medical image analysis for decision support in healthcare.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section id="patent">
-    <h2>Patent</h2>
-    <div class="card">
-      <p>
-        <strong>UV-Based Air Disinfection Lamp</strong><br/>
-        Patent Holder: Soheil Sheikh Ahmadi<br/>
-        An ultraviolet-based system for virus inactivation and air disinfection during the COVID-19 pandemic.<br/>
-        Year: 2021 &nbsp;|&nbsp; Registered at: Iranian Patent Office
-      </p>
-    </div>
-  </section>
+    <!-- Publications -->
+    <section id="publications">
+      <h2>Publications <span>/ journals &amp; conferences</span></h2>
 
-  <section id="experience">
-    <h2>Work Experience</h2>
-    <div class="card">
-      <ul>
-        <li>CEO &amp; Board Member – Vira Fanavar Toural Co.</li>
-        <li>Adjunct Lecturer – University of Tabriz &amp; Urmia University of Technology</li>
-        <li>Instructor – Robotics &amp; Artificial Intelligence Courses</li>
-        <li>Physics Teacher – SAMPAD Schools, Tabriz</li>
-      </ul>
-    </div>
-  </section>
+      <div class="two-col">
+        <!-- Journals -->
+        <div class="card">
+          <div class="card-title">Journal Articles</div>
+          <ul class="pub-list">
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="card">
-      <ul>
-        <li><strong>Programming &amp; Tools:</strong> MATLAB, Python, C/C++, TensorFlow, Keras, scikit-learn, ROS, Simulink</li>
-        <li><strong>Control &amp; Automation:</strong> MPC, Fuzzy Control, Sliding-Mode Control, Observer Design, PLC (Siemens)</li>
-        <li><strong>Robotics:</strong> Real-Time Control, ROS, Sensor Integration, Computer Vision (OpenCV)</li>
-        <li><strong>Embedded Systems:</strong> Arduino, Raspberry Pi, STM32</li>
-        <li><strong>Other:</strong> LaTeX, Linux, PCB Design (Altium, Proteus, Multisim)</li>
-      </ul>
-    </div>
-  </section>
+            <li class="pub-item">
+              <span class="badge">2025 · Int. J. Dynamics &amp; Control</span><br>
+              <strong>Observer Design for Switching Signal and States for a Class of Nonlinear Impulsive Switching Systems.</strong><br>
+              Soheil Sheikh Ahmadi, Farzad Hashemzadeh, Mohammad Ali Badamchizadeh.
+            </li>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-      <p>
-        <strong>Email:</strong>
-        <a href="mailto:Soheil.sheikhahmadi@tabrizu.ac.ir">Soheil.sheikhahmadi@tabrizu.ac.ir</a><br/>
-        <strong>LinkedIn:</strong>
-        <a href="https://www.linkedin.com/in/soheil-sheikh-ahmadi-777b8b2a1/" target="_blank">LinkedIn Profile</a><br/>
-        <strong>Google Scholar:</strong>
-        <!-- لینک پروفایل خودت را اینجا بگذار -->
-        <a href="#" target="_blank">Google Scholar Profile</a>
-      </p>
-    </div>
-  </section>
+            <li class="pub-item">
+              <span class="badge">2025 · IET Control Theory &amp; Applications</span><br>
+              <strong>Robust Observer for Linear Impulsive Switched Systems in the Presence of Unknown Input Signal and Measurement Noise.</strong><br>
+              Soheil Sheikh Ahmadi, Farzad Hashemzadeh.
+            </li>
+
+            <li class="pub-item">
+              <span class="badge">2025 · Int. J. Dynamics &amp; Control</span><br>
+              <strong>Solving Inverse Kinematics for a 6-DOF Stewart Platform Using the DDPG Algorithm.</strong><br>
+              Soheil Sheikh Ahmadi, Arash Rahmani.
+            </li>
+
+            <li class="pub-item">
+              <span class="badge">2024 · ISA Transactions</span><br>
+              <strong>Reduced Order State Estimation for a Class of Impulsive Switched Systems with Unknown Inputs.</strong><br>
+              Soheil Sheikh Ahmadi, Farzad Hashemzadeh, Mohammad Ali Badamchizadeh.
+            </li>
+
+            <li class="pub-item">
+              <span class="badge">2023 · Asian Journal of Control</span><br>
+              <strong>Comment on “Robust Adaptive Fractional-Order Terminal Sliding Mode Control for Lower-Limb Exoskeleton”.</strong><br>
+              Mohammad Hossein Samaei, Soheil Sheikh Ahmadi, Mojtaba Naderi Soorki, Seyed Shoja Amini.
+            </li>
+
+            <li class="pub-item">
+              <span class="badge">2020 · Int. J. Theoretical &amp; Applied Mechanics</span><br>
+              <strong>Nonlinear Model Predictive Control of a Stewart Platform Based on Improved Dynamic Model.</strong><br>
+              Soheil Sheikh Ahmadi, Arash Rahmani.
+            </li>
+
+            <li class="pub-item">
+              <span class="badge">2020 · Majlesi J. Mechatronic Systems</span><br>
+              <strong>Position Control of a Stewart Platform Using Dynamic Matrix Control.</strong><br>
+              Soheil Sheikh Ahmadi, Arash Rahmani.
+            </li>
+
+            <li class="pub-item">
+              <span class="badge">2019 · JMEST</span><br>
+              <strong>Boundary Condition Effect on Micro-Beams Using Newton–Raphson.</strong><br>
+              Soheil Sheikh Ahmadi.
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- Conferences -->
+        <div class="card">
+          <div class="card-title">Conference Papers</div>
+          <ul class="pub-list">
+
+            <li class="pub-item">
+              <span class="badge">2025 · ICTEM 2025</span><br>
+              <strong>Data-Driven Energy Consumption Prediction: A Comprehensive Approach to Smart Energy Management.</strong><br>
+              Soheil Sheikh Ahmadi, Alireza Sheikh Ahmadi.
+              <div class="pub-links">
+                <a href="https://ieeexplore.ieee.org/document/11263754" target="_blank">IEEE Xplore</a>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <span class="badge">2025 · ICEE 2025</span><br>
+              <strong>Observer-Based Controller for Impulsive Switched Systems with Uncertain Inputs.</strong><br>
+              Soheil Sheikh Ahmadi, Farzad Hashemzadeh, Mohammad Ali Badamchizadeh.
+              <div class="pub-links">
+                <a href="https://ieeexplore.ieee.org/document/11213797" target="_blank">IEEE Xplore</a>
+                <a href="icee2025_observer.html" target="_blank">Index Page</a>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <span class="badge">2025 · IPRIA 2025</span><br>
+              <strong>A Novel Deep Learning Framework for Brain Tumor Detection Enhanced by Runge-Kutta Optimization.</strong><br>
+              Soheil Sheikh Ahmadi, Alireza Sheikh Ahmadi.
+              <div class="pub-links">
+                <a href="https://ieeexplore.ieee.org/document/11263754" target="_blank">IEEE Xplore</a>
+                <a href="ipria2025_brain_tumor.html" target="_blank">Index Page</a>
+              </div>
+            </li>
+
+            <li class="pub-item">
+              <span class="badge">2025 · ICCKE 2025</span><br>
+              <strong>Intelligent Adaptive Control of Wheeled Mobile Robots with MLP Neural Networks under Input Constraints.</strong><br>
+              Soheil Sheikh Ahmadi, Arash Rahmani.
+            </li>
+
+            <li class="pub-item">
+              <span class="badge">2019 · NEC 2019</span><br>
+              <strong>Adaptive Fuzzy Sliding-Mode Control.</strong>
+            </li>
+
+            <li class="pub-item">
+              <span class="badge">2017 · Int. Conf. on EE</span><br>
+              <strong>Position Control of Six-DOF Stewart Mechanism Using SMC.</strong>
+            </li>
+
+            <li class="pub-item">
+              <span class="badge">2016 · Int. Conf. on E&amp;CE</span><br>
+              <strong>PID Controller for Stewart Mechanism.</strong>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects & Awards -->
+    <section id="projects">
+      <h2>Projects <span>/ selected work</span></h2>
+      <div class="two-col">
+
+        <div class="card">
+          <div class="card-title">Research &amp; Engineering Projects</div>
+          <ul class="timeline">
+            <li>
+              <strong>Autonomous Vehicle for Robotic Competitions</strong><br>
+              <span class="muted">University of Tabriz · 2024–2025</span>
+            </li>
+            <li>
+              <strong>Non-Contact Smart Hand Sanitizer Dispenser</strong><br>
+              <span class="muted">Vira Fanavar Tural · 2020–2021</span>
+            </li>
+            <li>
+              <strong>Mobile Rescue Robot for Search &amp; Rescue</strong><br>
+              <span class="muted">Urmia University of Technology · 2019–2020</span>
+            </li>
+          </ul>
+        </div>
+
+        <div id="awards" class="card">
+          <div class="card-title">Awards &amp; Recognition</div>
+          <ul class="timeline">
+            <li>
+              <strong>1st Place – IranOpen 2025, SuperTeam Soccer League</strong><br>
+              <span class="muted">Head coach, school robotics team.</span>
+            </li>
+            <li>
+              <strong>1st Place – RoboCup 2024 (Netherlands), SuperTeam Soccer League</strong><br>
+              <span class="muted">Head coach, Iranian student team.</span>
+            </li>
+            <li>
+              <strong>2nd Place – IranOpen 2024</strong><br>
+              <span class="muted">Head coach, school robotics team.</span>
+            </li>
+            <li>
+              <strong>Member, National Elites Foundation of Iran</strong><br>
+              <span class="muted">Since 2022.</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Teaching & Experience -->
+    <section id="teaching">
+      <h2>Teaching &amp; Professional Experience</h2>
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Teaching</div>
+          <ul class="timeline">
+            <li>
+              <strong>Mechatronics I &amp; II</strong><br>
+              <span class="muted">Urmia University of Technology · 2025</span>
+            </li>
+            <li>
+              <strong>Industrial Control Lab, Digital Control Lab</strong><br>
+              <span class="muted">University of Tabriz · 2021–2025</span>
+            </li>
+            <li>
+              <strong>Instrumentation Lab</strong><br>
+              <span class="muted">University of Tabriz · 2022–2024</span>
+            </li>
+            <li>
+              <strong>TA – Control &amp; Engineering Courses</strong><br>
+              <span class="muted">University of Tabriz · 2018–2021</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Professional Experience</div>
+          <ul class="timeline">
+            <li>
+              <strong>CEO</strong> – Vira Fanavar Tural Company<br>
+              <span class="muted">Tabriz, Iran · 2021 – Present</span>
+            </li>
+            <li>
+              <strong>Deputy Director</strong> – NADCO<br>
+              <span class="muted">Urmia, Iran · 2011 – 2016</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Patent & Skills -->
+    <section>
+      <div class="two-col">
+        <div class="card">
+          <div class="card-title">Patent</div>
+          <p class="muted">
+            <strong>UV-Based Air Disinfection Lamp</strong> – Iranian Patent Office (2021).<br>
+            Innovative system for virus inactivation and air disinfection during the COVID-19 pandemic.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Technical Skills</div>
+          <div class="pill-list">
+            <span class="pill-small">MATLAB / Simulink</span>
+            <span class="pill-small">Python</span>
+            <span class="pill-small">C/C++</span>
+            <span class="pill-small">TensorFlow / Keras</span>
+            <span class="pill-small">Reinforcement Learning</span>
+            <span class="pill-small">ROS</span>
+            <span class="pill-small">Control Design (MPC, SMC, Fuzzy)</span>
+            <span class="pill-small">Observers &amp; State Estimation</span>
+            <span class="pill-small">Embedded Systems (Arduino, Raspberry Pi, STM32)</span>
+            <span class="pill-small">PCB Design (Altium, Proteus, Multisim)</span>
+            <span class="pill-small">Linux &amp; LaTeX</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact <span>/ get in touch</span></h2>
+      <div class="card contact-grid">
+        <div>
+          <div class="card-title">Contact Details</div>
+          <p class="muted">
+            Email:<br>
+            <a href="mailto:soheil.sheikhahmadi@tabrizu.ac.ir">soheil.sheikhahmadi@tabrizu.ac.ir</a><br><br>
+            Phone (IR): +98 914 186 2400
+          </p>
+        </div>
+        <div>
+          <div class="card-title">Online Profiles</div>
+          <p class="muted">
+            <a href="https://scholar.google.com/citations?hl=en&user=v_0zkdcAAAAJ" target="_blank">Google Scholar</a><br>
+            <a href="https://orcid.org/0009-0000-5863-2148" target="_blank">ORCID</a><br>
+            <a href="https://www.linkedin.com/in/soheil-sheikh-ahmadi-777b8b2a1/" target="_blank">LinkedIn</a><br>
+            <a href="https://soheilsheikhahmadi.github.io/" target="_blank">GitHub Pages</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
 
   <footer>
-    <p>© 2025 Soheil Sheikh Ahmadi | Personal Website</p>
+    © 2025 Soheil Sheikh Ahmadi · Control Systems & AI
   </footer>
 </body>
 </html>
